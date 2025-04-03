@@ -1,5 +1,7 @@
 # mcp weather server
 
+nodejs >= 18
+
 ## 运行
 
 ```sh
