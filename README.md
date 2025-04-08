@@ -22,3 +22,14 @@ npm run server:build
     - 示例：https://restapi.amap.com/v3/weather/weatherInfo?key=[API KEY]&city=110000&extensions=all
   - https://weather-gov.github.io/api/general-faqs
     - 示例：https://api.weather.gov/points/38.8894,-77.0352
+
+## 其他 MCP 服务使用
+
+[百度地图 scp server 使用](https://lbsyun.baidu.com/faq/api?title=mcpserver/quickstart#%E9%80%9A%E8%BF%87Nodejs%E6%8E%A5%E5%85%A5)
+
+> 查看 ak：https://lbsyun.baidu.com/apiconsole/key
+
+```sh
+# 本地启动调试运行
+npx @modelcontextprotocol/inspector -e BAIDU_MAP_API_KEY=<AK> -- npx -y @baidumap/mcp-server-baidu-map
+```

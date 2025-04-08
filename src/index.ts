@@ -3,6 +3,7 @@ import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { z } from "zod";
 import dotenv from "dotenv";
+import fetch from "node-fetch";
 
 dotenv.config();
 
@@ -34,7 +35,13 @@ server.tool(
       }
 
       const res = await fetch(
-        `https://aider.meizu.com/app/weather/listWeather?cityIds=${cityCode}`
+        `https://aider.meizu.com/app/weather/listWeather?cityIds=${cityCode}`,
+        {
+          headers: {
+            "User-Agent":
+              "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36",
+          },
+        }
       );
       const data = await res.json();
       const forecasts = data.value[0];
@@ -80,7 +87,13 @@ server.tool(
       }
 
       const response = await fetch(
-        `https://wttr.in/${encodeURIComponent(city || "")}?format=j1`
+        `https://wttr.in/${encodeURIComponent(city || "")}?format=j1`,
+        {
+          headers: {
+            "User-Agent":
+              "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36",
+          },
+        }
       );
       const forecasts = await response.json();
 
